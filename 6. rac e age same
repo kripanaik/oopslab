@@ -1,0 +1,83 @@
+import java.util.*;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
+public class Utility {
+
+    // a. Method to check if a number is an Armstrong number
+    public boolean isArmstrong(int number) {
+        int originalNumber = number;
+        int result = 0;
+        int n = String.valueOf(number).length();
+
+        while (originalNumber != 0) {
+            int remainder = originalNumber % 10;
+            result += Math.pow(remainder, n);
+            originalNumber /= 10;
+        }
+
+        return result == number;
+    }
+
+    // b. Method to check if two strings are anagrams
+    public boolean areAnagrams(String str1, String str2) {
+        char[] charArray1 = str1.toCharArray();
+        char[] charArray2 = str2.toCharArray();
+
+        Arrays.sort(charArray1);
+        Arrays.sort(charArray2);
+
+        return Arrays.equals(charArray1, charArray2);
+    }
+
+    // c. Method to compare two DOBs
+    public String compareDOB(String dob1, String dob2) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDate date1 = LocalDate.parse(dob1, formatter);
+        LocalDate date2 = LocalDate.parse(dob2, formatter);
+
+        if (date1.isBefore(date2)) {
+            return "Elder";
+        } else if (date1.isAfter(date2)) {
+            return "Younger";
+        } else {
+            return "Same age";
+        }
+    }
+
+    public static void main(String[] args) {
+        Utility utility = new Utility();
+        Scanner scanner = new Scanner(System.in);
+
+        // a. Check if a number is an Armstrong number
+        System.out.print("Enter a number to check if it is an Armstrong number: ");
+        int number = scanner.nextInt();
+        if (utility.isArmstrong(number)) {
+            System.out.println(number + " is an Armstrong number.");
+        } else {
+            System.out.println(number + " is not an Armstrong number.");
+        }
+
+        // b. Check if two strings are anagrams
+        scanner.nextLine(); // Consume newline
+        System.out.print("Enter the first string to check for anagram: ");
+        String str1 = scanner.nextLine();
+        System.out.print("Enter the second string to check for anagram: ");
+        String str2 = scanner.nextLine();
+        if (utility.areAnagrams(str1, str2)) {
+            System.out.println(str1 + " and " + str2 + " are anagrams.");
+        } else {
+            System.out.println(str1 + " and " + str2 + " are not anagrams.");
+        }
+
+        // c. Compare two DOBs
+        System.out.print("Enter the first DOB (yyyy-MM-dd): ");
+        String dob1 = scanner.nextLine();
+        System.out.print("Enter the second DOB (yyyy-MM-dd): ");
+        String dob2 = scanner.nextLine();
+        String comparisonResult = utility.compareDOB(dob1, dob2);
+        System.out.println("The comparison result is: " + comparisonResult);
+
+        scanner.close();
+    }
+}
