@@ -1,0 +1,79 @@
+import java.util.Scanner;
+
+class StringManipulator {
+    private String inputString;
+
+    public StringManipulator(String inputString) {
+        this.inputString = inputString;
+    }
+
+    public int getLength() {
+        return inputString.length();
+    }
+
+    public String toUpperCase() {
+        return inputString.toUpperCase();
+    }
+
+    public String toLowerCase() {
+        return inputString.toLowerCase();
+    }
+
+    public boolean isPalindrome() {
+        String reversedString = new StringBuilder(inputString).reverse().toString();
+        return inputString.equals(reversedString);
+    }
+
+    public int countOccurrences(char character) {
+        int count = 0;
+        for (char ch : inputString.toCharArray()) {
+            if (ch == character) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    public String concatenate(String anotherString) {
+        return inputString + anotherString;
+    }
+
+    public void displayInfo() {
+        System.out.println("Original String: " + inputString);
+        System.out.println("Length: " + getLength());
+        System.out.println("Uppercase: " + toUpperCase());
+        System.out.println("Lowercase: " + toLowerCase());
+        System.out.println("Is Palindrome: " + (isPalindrome() ? "Yes" : "No"));
+    }
+}
+
+public class StringManipulatorTest {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Input string
+        System.out.print("Enter a string: ");
+        String input = scanner.nextLine();
+
+        StringManipulator manipulator = new StringManipulator(input);
+
+        // Display information about the string
+        manipulator.displayInfo();
+
+        // Count occurrences of a specific character
+        System.out.print("Enter a character to count its occurrences: ");
+        char character = scanner.next().charAt(0);
+        int count = manipulator.countOccurrences(character);
+        System.out.println("Occurrences of '" + character + "': " + count);
+
+        // String concatenation
+        System.out.print("Enter another string to concatenate: ");
+        scanner.nextLine(); // Consume the leftover newline
+        String anotherString = scanner.nextLine();
+        String concatenatedString = manipulator.concatenate(anotherString);
+        System.out.println("Concatenated String: " + concatenatedString);
+
+        scanner.close();
+    }
+}
+
