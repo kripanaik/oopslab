@@ -1,0 +1,29 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+
+public class SoftwareCompanies {
+    public static void main(String[] args) {
+        // Step 1: Create an ArrayList for software companies
+        ArrayList<String> companies = new ArrayList<>(Arrays.asList("Google", "Apple", "Microsoft", "Amazon", "Facebook"));
+
+        // Display initial list
+        System.out.println("Initial list: " + companies);
+
+        // 1) Add a new software company name in the above arraylist - CapGemini, and display the output
+        companies.add("CapGemini");
+        System.out.println("After adding CapGemini: " + companies);
+
+        // 2) Replace the 3rd company from an array list with a new company name and display the output
+        companies.set(2, "IBM");  // Replacing "Microsoft" with "IBM"
+        System.out.println("After replacing the 3rd company with IBM: " + companies);
+
+        // 3) Delete the 4th company from the array list and display the arraylist
+        companies.remove(3);  // Removing "Amazon"
+        System.out.println("After deleting the 4th company: " + companies);
+
+        // 4) Add sub arraylist in the above arraylist-[Walmart,Cognizant,HSBC] and display the output
+        ArrayList<String> subCompanies = new ArrayList<>(Arrays.asList("Walmart", "Cognizant", "HSBC"));
+        companies.addAll(subCompanies);
+        System.out.println("After adding sub arraylist: " + companies);
+    }
+}
