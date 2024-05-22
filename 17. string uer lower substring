@@ -1,0 +1,51 @@
+import java.util.Scanner;
+
+public class StringOperations {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Input two strings
+        System.out.print("Enter the first string: ");
+        String str1 = scanner.nextLine();
+        System.out.print("Enter the second string: ");
+        String str2 = scanner.nextLine();
+
+        // A. Concatenate two strings
+        String concatenatedString = str1.concat(str2);
+        System.out.println("Concatenated string: " + concatenatedString);
+
+        // B. Find the length of a string
+        int lengthOfString1 = str1.length();
+        int lengthOfString2 = str2.length();
+        System.out.println("Length of first string: " + lengthOfString1);
+        System.out.println("Length of second string: " + lengthOfString2);
+
+        // C. Convert a string to uppercase
+        String str1UpperCase = str1.toUpperCase();
+        String str2UpperCase = str2.toUpperCase();
+        System.out.println("Uppercase of first string: " + str1UpperCase);
+        System.out.println("Uppercase of second string: " + str2UpperCase);
+
+        // D. Convert a string to lowercase
+        String str1LowerCase = str1.toLowerCase();
+        String str2LowerCase = str2.toLowerCase();
+        System.out.println("Lowercase of first string: " + str1LowerCase);
+        System.out.println("Lowercase of second string: " + str2LowerCase);
+
+        // E. Check if a string contains a specific substring
+        System.out.print("Enter a substring to check in the first string: ");
+        String substringToCheck = scanner.nextLine();
+        boolean containsSubstring = str1.contains(substringToCheck);
+        System.out.println("First string contains the substring: " + containsSubstring);
+
+        // F. Replace a substring with another substring in a string
+        System.out.print("Enter the substring to replace: ");
+        String substringToReplace = scanner.nextLine();
+        System.out.print("Enter the new substring: ");
+        String newSubstring = scanner.nextLine();
+        String replacedString = str1.replace(substringToReplace, newSubstring);
+        System.out.println("String after replacement: " + replacedString);
+
+        scanner.close();
+    }
+}
