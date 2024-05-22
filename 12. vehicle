@@ -1,0 +1,117 @@
+interface Vehicle {
+    void changeGear(int newGear);
+    void speedUp(int increment);
+    void applyBrakes(int decrement);
+}
+class Bicycle implements Vehicle {
+    private int gear;
+    private int speed;
+
+    @Override
+    public void changeGear(int newGear) {
+        gear = newGear;
+        System.out.println("Bicycle gear changed to: " + gear);
+    }
+
+    @Override
+    public void speedUp(int increment) {
+        speed += increment;
+        System.out.println("Bicycle speed increased to: " + speed);
+    }
+
+    @Override
+    public void applyBrakes(int decrement) {
+        speed -= decrement;
+        if (speed < 0) speed = 0;
+        System.out.println("Bicycle speed decreased to: " + speed);
+    }
+
+    public void displayStatus() {
+        System.out.println("Bicycle current gear: " + gear + ", current speed: " + speed);
+    }
+}
+class Bike implements Vehicle {
+    private int gear;
+    private int speed;
+
+    @Override
+    public void changeGear(int newGear) {
+        gear = newGear;
+        System.out.println("Bike gear changed to: " + gear);
+    }
+
+    @Override
+    public void speedUp(int increment) {
+        speed += increment;
+        System.out.println("Bike speed increased to: " + speed);
+    }
+
+    @Override
+    public void applyBrakes(int decrement) {
+        speed -= decrement;
+        if (speed < 0) speed = 0;
+        System.out.println("Bike speed decreased to: " + speed);
+    }
+
+    public void displayStatus() {
+        System.out.println("Bike current gear: " + gear + ", current speed: " + speed);
+    }
+}
+class Car implements Vehicle {
+    private int gear;
+    private int speed;
+
+    @Override
+    public void changeGear(int newGear) {
+        gear = newGear;
+        System.out.println("Car gear changed to: " + gear);
+    }
+
+    @Override
+    public void speedUp(int increment) {
+        speed += increment;
+        System.out.println("Car speed increased to: " + speed);
+    }
+
+    @Override
+    public void applyBrakes(int decrement) {
+        speed -= decrement;
+        if (speed < 0) speed = 0;
+        System.out.println("Car speed decreased to: " + speed);
+    }
+
+    public void displayStatus() {
+        System.out.println("Car current gear: " + gear + ", current speed: " + speed);
+    }
+}
+
+
+public class VehicleDemo {
+    public static void main(String[] args) {
+        // Create instances of Bicycle, Bike, and Car
+        Bicycle bicycle = new Bicycle();
+        Bike bike = new Bike();
+        Car car = new Car();
+
+        // Bicycle operations
+        System.out.println("Bicycle operations:");
+        bicycle.changeGear(2);
+        bicycle.speedUp(10);
+        bicycle.applyBrakes(3);
+        bicycle.displayStatus();
+
+        // Bike operations
+        System.out.println("\nBike operations:");
+        bike.changeGear(3);
+        bike.speedUp(20);
+        bike.applyBrakes(5);
+        bike.displayStatus();
+
+        // Car operations
+        System.out.println("\nCar operations:");
+        car.changeGear(4);
+        car.speedUp(30);
+        car.applyBrakes(10);
+        car.displayStatus();
+    }
+}
