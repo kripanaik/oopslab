@@ -1,0 +1,72 @@
+import java.util.Scanner;
+
+public class ArrayOperations {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Input: Prompt the user to enter the size of an array
+        System.out.print("Enter the size of the array: ");
+        int size = scanner.nextInt();
+
+        // Initialize the array
+        int[] array = new int[size];
+
+        // Allow the user to input the elements of the array
+        System.out.println("Enter the elements of the array:");
+        for (int i = 0; i < size; i++) {
+            System.out.print("Element " + (i + 1) + ": ");
+            array[i] = scanner.nextInt();
+        }
+
+        // Display: Display the entered array
+        System.out.println("Entered Array:");
+        for (int i : array) {
+            System.out.print(i + " ");
+        }
+        System.out.println();
+
+        // Find and display the sum of all elements in the array
+        int sum = 0;
+        for (int i : array) {
+            sum += i;
+        }
+        System.out.println("Sum of all elements: " + sum);
+
+        // Find and display the average of the elements
+        double average = (double) sum / size;
+        System.out.println("Average of elements: " + average);
+
+        // Find and display the maximum and minimum values in the array
+        int max = array[0];
+        int min = array[0];
+        for (int i : array) {
+            if (i > max) {
+                max = i;
+            }
+            if (i < min) {
+                min = i;
+            }
+        }
+        System.out.println("Maximum value: " + max);
+        System.out.println("Minimum value: " + min);
+
+        // Search: Prompt the user to enter a value to search for in the array
+        System.out.print("Enter a value to search for: ");
+        int searchValue = scanner.nextInt();
+
+        // Search for the value and display its index if present
+        boolean found = false;
+        for (int i = 0; i < size; i++) {
+            if (array[i] == searchValue) {
+                System.out.println("Value " + searchValue + " found at index: " + i);
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
+            System.out.println("Value " + searchValue + " is not present in the array.");
+        }
+
+        scanner.close();
+    }
+}
