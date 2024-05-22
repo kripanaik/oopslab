@@ -1,0 +1,39 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class PrimeChecker {
+
+    // Method to check if a number is prime
+    private boolean isPrime(int number) {
+        if (number <= 1) {
+            return false;
+        }
+        for (int i = 2; i <= Math.sqrt(number); i++) {
+            if (number % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    // Method to find twin primes less than 100
+    public List<int[]> findTwinPrimes(int limit) {
+        List<int[]> twinPrimes = new ArrayList<>();
+        for (int i = 2; i < limit - 2; i++) {
+            if (isPrime(i) && isPrime(i + 2)) {
+                twinPrimes.add(new int[]{i, i + 2});
+            }
+        }
+        return twinPrimes;
+    }
+
+    public static void main(String[] args) {
+        PrimeChecker primeChecker = new PrimeChecker();
+        List<int[]> twinPrimes = primeChecker.findTwinPrimes(100);
+
+        System.out.println("Twin primes less than 100:");
+        for (int[] pair : twinPrimes) {
+            System.out.println("(" + pair[0] + ", " + pair[1] + ")");
+        }
+    }
+}
