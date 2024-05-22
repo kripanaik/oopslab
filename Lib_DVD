@@ -1,0 +1,84 @@
+class LibraryItem {
+    private static int nextID = 1; // Static variable to keep track of the next ID
+    private String title;
+    private int itemID;
+
+    public LibraryItem(String title) {
+        this.title = title;
+        this.itemID = nextID++;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public int getItemID() {
+        return itemID;
+    }
+
+    public void displayInfo() {
+        System.out.println("Title: " + title);
+        System.out.println("Item ID: " + itemID);
+    }
+}
+
+class Book extends LibraryItem {
+    private String author;
+
+    public Book(String title, String author) {
+        super(title);
+        this.author = author;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    @Override
+    public void displayInfo() {
+        super.displayInfo();
+        System.out.println("Author: " + author);
+        System.out.println("Type: BOOK");
+    }
+}
+
+class DVD extends LibraryItem {
+    private String director;
+
+    public DVD(String title, String director) {
+        super(title);
+        this.director = director;
+    }
+
+    public String getDirector() {
+        return director;
+    }
+
+    @Override
+    public void displayInfo() {
+        super.displayInfo();
+        System.out.println("Director: " + director);
+        System.out.println("Type: DVD");
+    }
+}
+
+public class LibraryTest {
+    public static void main(String[] args) {
+        Book book1 = new Book("Java language", "ABC");
+        DVD dvd1 = new DVD("C language", "Jack Sparrow");
+        DVD dvd2 = new DVD("OOP", "Black Smith");
+
+        System.out.println("Book Information:");
+        book1.displayInfo();
+        System.out.println();
+
+        System.out.println("DVD Information:");
+        dvd1.displayInfo();
+        System.out.println();
+
+        System.out.println("DVD Information:");
+        dvd2.displayInfo();
+        System.out.println();
+    }
+}
+
