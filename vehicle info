@@ -1,0 +1,61 @@
+16. .Write a program to create a class named Vehicle having protected instance variables regnNumber, speed, color, ownerName and a method showData ( ) to show “This is a vehicle class”. Inherit the Vehicle class into subclasses named Bus and Car having individual private instance variables routeNumber in Bus and manufacturerName in Car and both of them having showData ( ) method showing all details of Bus and Car respectively with content of the super class’s showData ( ) method
+
+
+.
+// Base class Vehicle
+class Vehicle {
+    // Method to start the engine (base implementation)
+    void startEngine() {
+        System.out.println("Engine of the vehicle starts.");
+    }
+
+    // Method to stop the engine (base implementation)
+    void stopEngine() {
+        System.out.println("Engine of the vehicle stops.");
+    }
+}
+
+// Subclass Car inheriting from Vehicle
+class Car extends Vehicle {
+    // Method to start the engine (override)
+    @Override
+    void startEngine() {
+        System.out.println("Car engine starts with ignition key.");
+    }
+
+    // Method to stop the engine (override)
+    @Override
+    void stopEngine() {
+        System.out.println("Car engine stops with ignition key.");
+    }
+}
+
+// Subclass Motorcycle inheriting from Vehicle
+class Motorcycle extends Vehicle {
+    // Method to start the engine (override)
+    @Override
+    void startEngine() {
+        System.out.println("Motorcycle engine starts with kick-start.");
+    }
+
+    // Method to stop the engine (override)
+    @Override
+    void stopEngine() {
+        System.out.println("Motorcycle engine stops with ignition key.");
+    }
+}
+
+public class VehicleTest {
+    public static void main(String[] args) {
+        // Create objects of Car and Motorcycle classes
+        Car car = new Car();
+        Motorcycle motorcycle = new Motorcycle();
+
+        // Call startEngine() and stopEngine() methods for each object
+        car.startEngine();
+        car.stopEngine();
+
+        motorcycle.startEngine();
+        motorcycle.stopEngine();
+    }
+}
