@@ -1,0 +1,37 @@
+15.	// Parent class
+class Animal {
+    // Method in the parent class
+    void sound() {
+        System.out.println("Animal makes a sound");
+    }
+}
+
+// Child class inheriting from Animal
+class Dog extends Animal {
+    // Overriding the sound() method from the parent class
+    @Override
+    void sound() {
+        System.out.println("Dog barks");
+    }
+}
+
+// Child class inheriting from Animal
+class Cat extends Animal {
+    // Overriding the sound() method from the parent class
+    @Override
+    void sound() {
+        System.out.println("Cat meows");
+    }
+}
+
+public class MethodOverridingExample {
+    public static void main(String[] args) {
+        // Creating objects of Dog and Cat classes
+        Dog dog = new Dog();
+        Cat cat = new Cat();
+
+        // Calling the sound() method of each object
+        dog.sound(); // This will call the overridden sound() method in Dog class
+        cat.sound(); // This will call the overridden sound() method in Cat class
+    }
+}
