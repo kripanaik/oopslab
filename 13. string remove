@@ -1,0 +1,45 @@
+import java.util.HashSet;
+import java.util.Scanner;
+
+public class RemoveCharacters {
+
+    // Method to remove specific characters from the original string
+    public static String removeChars(String original, String toRemove) {
+        // Create a StringBuilder to construct the resulting string
+        StringBuilder result = new StringBuilder();
+
+        // Convert the string toRemove to a HashSet for efficient lookup
+        HashSet<Character> removeSet = new HashSet<>();
+        for (char c : toRemove.toCharArray()) {
+            removeSet.add(c);
+        }
+
+        // Iterate through the original string and append characters not in removeSet
+        for (char c : original.toCharArray()) {
+            if (!removeSet.contains(c)) {
+                result.append(c);
+            }
+        }
+
+        return result.toString();
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Input the original string
+        System.out.print("Enter the original string: ");
+        String original = scanner.nextLine();
+
+        // Input the string with characters to remove
+        System.out.print("Enter the characters to remove: ");
+        String toRemove = scanner.nextLine();
+
+        // Remove specified characters and display the result
+        String result = removeChars(original, toRemove);
+        System.out.println("Resulting string: " + result);
+
+        scanner.close();
+    }
+}
+
